@@ -96,8 +96,13 @@ const SITE_CONFIG = {
   booking: {
     heading: "Find a time",
     sub: "Pick a slot below — you'll get a video link by email right after.",
-    // Paste a Calendly / Cal.com embed URL here to go live.
-    embedUrl: "https://appointment.briskcloudware.com/book.html?r=t9MXXiac"
+    // Paste a Calendly / Cal.com / Brisk link here to go live.
+    embedUrl: "https://appointment.briskcloudware.com/book.html?r=t9MXXiac",
+    // "iframe" = shows the calendar inline (Calendly/Cal.com allow this).
+    // "button" = shows a "Book now" card that opens the link in a new tab
+    // (use this for Brisk Appointment, which blocks inline embedding).
+    embedType: "button",
+    ctaLabel: "Book your session"
   },
 
   // ---------- Footer ----------

@@ -82,7 +82,13 @@
   document.getElementById('booking-heading').textContent = c.booking.heading;
   document.getElementById('booking-sub').textContent = c.booking.sub;
   const slot = document.getElementById('booking-embed-slot');
-  if (c.booking.embedUrl) {
+  if (c.booking.embedUrl && c.booking.embedType === 'button') {
+    slot.innerHTML = `
+      <div style="text-align:center; padding:56px 32px; background:var(--bg-1); border:1px solid var(--line); border-radius:18px;">
+        <p style="color:var(--ink-dim); margin:0 0 24px; font-size:0.95rem;">Availability opens in a new tab — pick your slot there and you're set.</p>
+        <a class="btn btn-primary" href="${c.booking.embedUrl}" target="_blank" rel="noopener">${c.booking.ctaLabel || 'Book now'}</a>
+      </div>`;
+  } else if (c.booking.embedUrl) {
     slot.innerHTML = `
       <iframe src="${c.booking.embedUrl}" style="width:100%;min-height:640px;border:0;border-radius:18px;" title="Booking calendar"></iframe>
       <p style="text-align:center;margin-top:16px;font-size:0.85rem;color:var(--ink-dim);">
