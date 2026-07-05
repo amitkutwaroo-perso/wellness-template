@@ -1,0 +1,125 @@
+:root{
+  --bg-0:#11141B; --bg-1:#171B24; --bg-2:#1F2430;
+  --brass:#C9A467; --ember:#D98E73;
+  --ink:#EDE9E2; --ink-dim:#9A9CA8;
+  --font-display:'Fraunces', serif;
+  --font-body:'Work Sans', sans-serif;
+  --line: rgba(237,233,226,0.12);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--bg-0); color:var(--ink);
+  font-family:var(--font-body); line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+h1,h2{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; margin:0;}
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+}
+
+/* ---------- Nav ---------- */
+nav{position:sticky; top:0; z-index:20; backdrop-filter:blur(10px); background:rgba(17,20,27,0.75); border-bottom:1px solid var(--line);}
+.nav-inner{display:flex; align-items:center; justify-content:space-between; height:68px;}
+.wordmark{font-family:var(--font-display); font-size:1.25rem; text-decoration:none;}
+.wordmark .accent{color:var(--brass);}
+.links{display:flex; gap:32px;}
+.links a{text-decoration:none; color:var(--ink-dim); font-size:0.92rem; transition:color 0.2s;}
+.links a:hover{color:var(--ink);}
+
+/* ---------- Hero ---------- */
+.hero{padding:80px 0 60px;}
+.hero-inner{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;}
+.eyebrow{color:var(--brass); font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; margin:0 0 18px;}
+.hero h1{font-size:3.1rem; line-height:1.12; margin-bottom:22px;}
+.subhead{color:var(--ink-dim); font-size:1.08rem; max-width:46ch; margin:0 0 32px;}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+.btn{display:inline-block; padding:13px 26px; border-radius:999px; font-size:0.95rem; text-decoration:none; font-weight:600; transition:transform 0.15s, background 0.2s;}
+.btn:hover{transform:translateY(-1px);}
+.btn-primary{background:var(--brass); color:#181008;}
+.btn-primary:hover{background:#d9b57c;}
+.btn-secondary{background:transparent; color:var(--ink); border:1px solid var(--line);}
+.btn-secondary:hover{border-color:var(--brass); color:var(--brass);}
+
+/* ---------- Breathing circle (signature element) ---------- */
+.breath-wrap{position:relative; width:320px; height:320px; margin:0 auto; display:flex; align-items:center; justify-content:center;}
+.breath-ring{position:absolute; border-radius:50%; border:1px solid rgba(201,164,103,0.25);}
+.r2{width:240px; height:240px; animation:pulse-ring 12s ease-in-out infinite;}
+.r3{width:300px; height:300px; animation:pulse-ring 12s ease-in-out infinite; animation-delay:0.4s; opacity:0.6;}
+.breath-circle{
+  width:150px; height:150px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #E7C48F, var(--brass) 55%, var(--ember) 100%);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 0 60px rgba(201,164,103,0.35);
+  animation:breathe 12s ease-in-out infinite;
+}
+.breath-circle span{
+  font-family:var(--font-display); font-style:italic; color:#181008;
+  font-size:0.95rem; text-align:center; padding:0 20px;
+}
+@keyframes breathe{
+  0%, 100%{transform:scale(0.72);}
+  33%{transform:scale(1);}
+  50%{transform:scale(1);}
+  83%{transform:scale(0.72);}
+}
+@keyframes pulse-ring{
+  0%, 100%{transform:scale(0.85); opacity:0.35;}
+  33%{transform:scale(1); opacity:0.7;}
+  50%{transform:scale(1); opacity:0.7;}
+  83%{transform:scale(0.85); opacity:0.35;}
+}
+
+/* ---------- Sections ---------- */
+.section{padding:76px 0;}
+.section h2{font-size:2rem; margin-bottom:12px;}
+.section-sub{color:var(--ink-dim); margin:0 0 40px; max-width:52ch;}
+
+/* Sessions cards */
+.cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+.card{background:var(--bg-1); border:1px solid var(--line); border-radius:18px; padding:28px;}
+.card h3{font-family:var(--font-display); font-size:1.25rem; margin:0 0 4px; font-weight:600;}
+.card .duration{color:var(--ink-dim); font-size:0.85rem; margin-bottom:14px;}
+.card .price{font-family:var(--font-display); font-size:1.6rem; color:var(--brass); margin:0 0 14px;}
+.card p{color:var(--ink-dim); font-size:0.92rem; margin:0;}
+
+/* About */
+.about{background:var(--bg-1); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.about-grid{display:grid; grid-template-columns:1.3fr 0.7fr; gap:48px; align-items:start;}
+.about-text p{color:var(--ink-dim); margin:0 0 16px; max-width:56ch;}
+.credentials{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
+.credentials li{padding:14px 16px; background:var(--bg-2); border-radius:12px; font-size:0.9rem; border-left:2px solid var(--brass);}
+
+/* Quote */
+.quote-section{text-align:center;}
+.quote{font-family:var(--font-display); font-style:italic; font-size:1.6rem; line-height:1.5; color:var(--ink); max-width:56ch; margin:0 auto; padding:0;}
+.quote-attr{margin-top:20px; color:var(--ink-dim); font-size:0.9rem;}
+
+/* Booking */
+.booking-embed-empty{
+  width:100%; min-height:360px; border:1px dashed var(--line); border-radius:18px;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  color:var(--ink-dim); font-size:0.9rem; padding:32px; background:var(--bg-1);
+}
+
+/* Footer */
+footer{padding:44px 0 60px; border-top:1px solid var(--line); color:var(--ink-dim); font-size:0.88rem;}
+.foot-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; margin-bottom:16px;}
+.foot-links{display:flex; gap:20px;}
+footer a{text-decoration:none; color:var(--ink-dim); border-bottom:1px solid transparent;}
+footer a:hover{color:var(--brass); border-color:var(--brass);}
+.disclaimer{font-size:0.8rem; opacity:0.7; margin:0; max-width:60ch;}
+
+@media (max-width:860px){
+  .hero-inner{grid-template-columns:1fr; text-align:center;}
+  .hero .cta-row{justify-content:center;}
+  .breath-wrap{margin:32px auto 0;}
+  .about-grid, .cards{grid-template-columns:1fr;}
+  .hero h1{font-size:2.3rem;}
+  .links{display:none;}
+}

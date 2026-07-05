@@ -1,0 +1,10 @@
+{
+  "name": "stillpoint-wellness-template",
+  "version": "1.0.0",
+  "description": "A config-driven booking site template for Reiki and wellness practitioners.",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": ["wellness", "reiki", "meditation", "booking", "template", "html-template"],
+  "license": "MIT"
+}
