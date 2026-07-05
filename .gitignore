@@ -5,3 +5,7 @@ node_modules/
 .idea/
 *.log
 .env
+
+# Paid Pro version — must never be pushed to the public repo
+wellness-pro/
+
